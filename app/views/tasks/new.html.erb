@@ -1,0 +1,22 @@
+<h1>Add Post</h1>
+
+<%= form_for :post, url: tasks_path do |f| %>
+  <% if @task.errors.any? %>
+    <% @task.errors.full_messages.each do |msg| %>
+      <div class="alert alert-danger"><%= msg %></div>
+    <% end %>
+  <% end %>
+  <p>
+    <%= f.label :name %> <br>
+    <%= f.text_field(:name, {:class => 'form-control'})%>
+  </p>
+
+  <p>
+    <%= f.label :descriptiont %><br>
+    <%= f.text_area(:description, {:class => 'form-control'}) %>
+  </p>
+
+  <p>
+    <%= f.submit({:class => 'btn btn-primary'})%>
+  </p>
+<% end %>

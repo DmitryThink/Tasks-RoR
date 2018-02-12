@@ -1,0 +1,30 @@
+<h1>My tasks</h1>
+<table class="table table-hover table-bordered">
+  <thead>
+  <tr>
+    <th>Task</th>
+    <th>Description</th>
+    <th>Checked</th>
+    <th>Edit</th>
+    <th>Delete</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @tasks.each do|task| %>
+    <% if task.userId == current_user.id  %>
+      <tr>
+        <td><%= task.name %></td>
+        <td><%= task.description %></td>
+        <td><div class="form-check">
+          <label class="form-check-label">
+            <input type="checkbox" class="form-check-input" value="">
+          </label>
+        </div></td>
+        <td><%= link_to "Edit", edit_task_path(task), :class => 'btn btn-default' %></td>
+        <td><%= button_to  "Delete",  task_path(task), method: :delete %></td>
+      </tr>
+    <% end %>
+  <% end %>
+  </tbody>
+</table>
+</table>

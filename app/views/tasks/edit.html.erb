@@ -1,0 +1,11 @@
+<h1>Edit Post</h1>
+
+<%= form_tag task_path(@task), method: "put" do %>
+  <label>Task title:</label><br>
+  <%= text_field_tag :name, @task.name %><br>
+
+  <label>Post Description</label><br>
+  <%= text_area_tag :description, @task.description %><br>
+
+  <%= submit_tag "Submit Post" %>
+<% end %>
